@@ -15,6 +15,13 @@ public class LogRegService {
 		if(rslt.isOfficial()!=u.isOfficial()) return "isofficial_err";
 		return "suc";
 	}
+	
+	public User getUser(User u) {
+		LogRegDAO dao = new LogRegDAO();
+		User rslt = dao.loginDAO(u);
+		return rslt;
+	}
+	
 	public boolean register(User u) {
 		System.out.print("Register service requested: ");
 		u.printInfo();

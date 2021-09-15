@@ -20,7 +20,12 @@ public class ParkServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		int park_id = Integer.parseInt(request.getParameter("park_id"));
-		response.sendRedirect("detail.jsp?park_id="+park_id);
+		
+		Park pk = new Park();
+		ParkService svc=new ParkService();
+		pk=svc.selectOnePark(park_id);
+		request.getSession().setAttribute("park_selected", pk);
+		response.sendRedirect("detail.jsp");
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

@@ -11,7 +11,7 @@ import entity.Park;
 
 public class ParkDAO {
 	static final String JDBC_DRIVER="org.postgresql.Driver";
-	static final String DB_URL="jdbc:postgresql://192.168.152.133:26000/software_course_design?ApplicationName=app1";
+	static final String DB_URL="jdbc:postgresql://192.168.152.134:26000/software_course_design?ApplicationName=app1";
 	static final String USER="chenrz";
 	static final String PASS="jsnj130601*";
 	
@@ -83,5 +83,64 @@ public class ParkDAO {
 		catch(SQLException e){e.printStackTrace();}
 		
 		return tmp;
+	}
+	
+	
+	public boolean parkReservedDAO(int parkid, int num, int datediff) {
+		try{Class.forName(JDBC_DRIVER);}catch(ClassNotFoundException e){e.printStackTrace();}
+		
+		int max_num=0, v=0;
+		int isSuc = 0;
+		
+		try{
+			Connection conn=DriverManager.getConnection(DB_URL,USER,PASS);
+			Statement statement=conn.createStatement();
+			String sql="SELECT max_num,visitor_"+datediff+" FROM parks WHERE park_id="+parkid+";";
+			ResultSet rs=statement.executeQuery(sql);
+			while(rs.next()){
+				max_num = rs.getInt("max_num");
+				v = rs.getInt("visitor_"+datediff);
+			}
+			rs.close();
+			statement.close();
+			conn.close();
+		}
+		catch(SQLException e){e.printStackTrace();}
+		
+		if(v+num > max_num) {
+			return false;
+		}else {
+			try{
+				Connection conn=DriverManager.getConnection(DB_URL,USER,PASS);
+				Statement statement=conn.createStatement();
+				String sql="UPDATE parks SET visitor_"+datediff+" ="+(v+num)+" where park_id="+parkid+";";
+				isSuc = statement.executeUpdate(sql);
+				statement.close();
+				conn.close();
+			}
+			catch(SQLException e){e.printStackTrace();}
+		}
+		
+		if(isSuc == 0) return false;
+		else return true;
+	}
+	
+	public boolean covidRiskDAO(int pkid) {
+		try{Class.forName(JDBC_DRIVER);}catch(ClassNotFoundException e){e.printStackTrace();}
+		
+		int isSuc = 0;
+		
+		try{
+			Connection conn=DriverManager.getConnection(DB_URL,USER,PASS);
+			Statement statement=conn.createStatement();
+			String sql="UPDATE parks SET covid_risk=true where park_id="+pkid+";";
+			isSuc = statement.executeUpdate(sql);
+			statement.close();
+			conn.close();
+		}
+		catch(SQLException e){e.printStackTrace();}
+		
+		if(isSuc == 0) return false;
+		else return true;
 	}
 }

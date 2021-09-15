@@ -81,14 +81,14 @@
                     <div class="row mb-4">
                         <label class="fw-bold mb-3">手机号</label>
                         <div class="col-sm-12 ">
-                            <input type="text" class="form-control" name="phone_no">
+                            <input type="text" class="form-control" name="phone_no" required="required">
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <label class="fw-bold mb-3">密码</label>
                         <div class="col-sm-12">
-                            <input type="password" class="form-control" name="password">
+                            <input type="password" class="form-control" name="password" required="required">
                         </div>
                     </div>  
                       
@@ -114,7 +114,7 @@
                         还没有账号？<a href="register.jsp" style="text-decoration: none;">马上注册 👉</a>
                     </div>
                     <div class="mt-3 text-center login-form-item text-muted">
-                        或者...<a href="#" style="text-decoration: none;">先去逛逛？</a>
+                        或者...<a href="welcome.jsp" style="text-decoration: none;">先去逛逛？</a>
                     </div>
                 </form>
 

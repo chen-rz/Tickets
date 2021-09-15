@@ -1,11 +1,14 @@
-<%@ page language="java" import="java.util.*,entity.Park,service.ParkService" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*,entity.*" pageEncoding="UTF-8"%>
 
 <% 	Park pk = new Park();
-	if(request.getParameter("park_id")!=null){
-		ParkService svc=new ParkService();
-		int park_id=Integer.parseInt(request.getParameter("park_id"));
-		pk=svc.selectOnePark(park_id);
+	if(request.getSession().getAttribute("park_selected")!=null){
+		pk = (Park)request.getSession().getAttribute("park_selected");
 	} 
+	
+	User usr = new User();
+	if(session.getAttribute("user_info")!=null){
+		usr = (User)session.getAttribute("user_info");
+	}
 %>
 
 <!DOCTYPE html>
@@ -14,7 +17,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>景点名称</title>
+    <title><%=pk.getPark_name() %></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 </head>
@@ -22,9 +25,9 @@
     <!-- 导航栏 -->
     <nav class="navbar navbar-expand-md navbar-light pt-5 pb-4" >
         <div class="container-xxl">
-            <a class="navbar-brand" href="#intro">
+            <a class="navbar-brand">
                 <span class="text-secondary fw-bold">
-                  全市景区统一预约订票系统
+                  	全市景区统一预约订票系统
                 </span>
               </a>
 
@@ -32,22 +35,27 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
 
-              <!-- 参看前面的按钮 -->
               <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
                 <ul class="navbar-nav">
+                
+                  <li class="nav-item">
+                    <a class="nav-link"><%=usr.getUser_name()==null?"您尚未登录":"欢迎您，"+usr.getUser_name() %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                  </li>
+                  
                   <li class="nav-item">
                     <a class="nav-link" href="welcome.jsp">景区一览</a>
                   </li>
+                  
+                  <%if(usr.getUser_name()!=null){ %>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">历史订单</a>
+                    <a class="nav-link" href="tickets.jsp">订单记录</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">关于我们</a>
-                  </li>
+                  <%} %>
                   
                   <li class="nav-item ms-2 d-none d-md-inline">
-                    <a class="btn btn-secondary" href="login.jsp">退出登录</a>
+                    <a class="btn btn-secondary" href="login.jsp"><%=usr.getUser_name()==null?"去登录":"退出登录"%></a>
                   </li>
+                  
                 </ul>
               </div>
         </div>
@@ -111,11 +119,12 @@
             </div>
 
             <!-- 购票按钮 -->
-
+			<%if(usr.getPhoneno()!=null){ %>
             <div class="mb-4 mt-4 text-left">
-                <button class="col btn btn-primary btn-lg fw-bold">预约订票</button>
+                <button class="col btn btn-primary btn-lg fw-bold" 
+                	onclick="window.location.href='reserve.jsp'">预约订票</button>
             </div>
-
+			<%} %>
         </div>
     </section>
 
@@ -126,7 +135,6 @@
     <footer class="bg-primary bg-opacity-10 mt-5 ">
         <div class="container-lg mt-5 text-center">
             <h3 class="mt-5">广告位招租</h3>
-            <p class="mt-5 mb-5">宇昂传媒&nbsp;&nbsp;精准投放</p>
             <p class="mt-5 mb-5">联系人：严经理</p>
         </div>
     </footer>

@@ -46,10 +46,15 @@ public class RegisterServlet extends HttpServlet {
 		User u=new User();
 		try {
 			u.setPhoneno(request.getParameter("phone_no"));
+			u.setUser_name(request.getParameter("user_name"));
+			
 			String originalPwd = request.getParameter("password").toString();
 			u.setPassword(sha256(originalPwd));
-			u.setUser_name(request.getParameter("user_name"));
-			u.setOfficial(false); //TODO 仅为游客提供注册服务？
+			
+			boolean isOfficial = false;
+			if(request.getParameter("is_official").equals("true"))
+				isOfficial = true;
+			u.setOfficial(isOfficial);
 			
 			LogRegService svc=new LogRegService();
 			

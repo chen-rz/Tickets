@@ -14,7 +14,7 @@
 	if(request.getParameter("failure").equals("reg_err")){
 %>
 		<script type="text/javascript">
-			alert('注册失败\n\n请注意：\n◆ 所有项目均不能为空\n◆ 同一手机号不可注册多个账号');
+			alert('注册失败\n\n请注意：\n◆ 同一手机号不可注册多个账号');
 			window.location.href="register.jsp";
 		</script>
 <%	}
@@ -46,28 +46,40 @@
             <div class="row mb-4 mt-4 ms-4">
                 <label class="fw-bold mb-3">用户名</label>
                 <div class="col-9 ">
-                    <input type="text" class="form-control col" name="user_name">
+                    <input type="text" class="form-control col" name="user_name" required="required">
                 </div>
             </div>
-
+			
             <div class="row mb-4 mt-4 ms-4">
                 <label class="fw-bold mb-3">手机号</label>
                 <div class="col-9 ">
-                    <input type="text" class="form-control col" name="phone_no">
+                    <input type="text" class="form-control col" name="phone_no" required="required">
                 </div>
             </div>
-
+            
             <div class="row mb-4 mt-4 ms-4">
-                <label class="fw-bold mb-3">密码</label>
-                <div class="col-6 ">
-                    <input type="password" class="form-control col" name="password">
+                <label class="fw-bold mb-3">用户身份</label>
+	             <div class="col-3">
+	                <input type="radio" class="form-check-input" name="is_official" value="false" checked>
+	                <label class="form-check-label">游客</label>
+	       		 </div>
+	             <div class="col-3">
+	                <input type="radio" class="form-check-input" name="is_official" value="true">
+	                <label class="form-check-label">管理员</label>
+	             </div>
+	        </div>
+			
+            <div class="row mb-4 mt-4 ms-4">
+            	<div class="col-6 ">
+                	<label class="fw-bold mb-3">密码</label>
+                    <input type="password" class="form-control col" name="password" required="required">
                 </div>
             </div>
-
+            
             <div class="row mb-4 mt-4 ms-4">
-                <label class="fw-bold mb-3">请再次确认密码~</label>
-                <div class="col-6 ">
-                    <input type="password" class="form-control col" name="password_confirm">
+                <div class="col-6">
+                	<label class="fw-bold mb-3">请再次确认密码~</label>
+                    <input type="password" class="form-control col" name="password_confirm" required="required">
                 </div>
             </div>
 

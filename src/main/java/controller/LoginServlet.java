@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
 			System.out.println(loginRs);
 			
 			if(loginRs.equals("suc")) {
-				request.setAttribute("user_info", u);
+				request.getSession().setAttribute("user_info", svc.getUser(u));
 				response.sendRedirect("welcome.jsp");
 			}
 			else {
