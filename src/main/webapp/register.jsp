@@ -7,7 +7,7 @@
 	if(request.getParameter("failure").equals("psw_cfm_err")){
 	%>
 		<script type="text/javascript"> 
-			alert('再次输入的密码不正确，请检查');
+			alert('▲ 再次输入的密码不正确，请检查');
 			window.location.href="register.jsp";
 		</script>
 <%	}
@@ -33,7 +33,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <title>用户注册</title>
+    <title>用户注册 - 景区订票系统</title>
 </head>
 
 <body class="position-relative bg-light min-vh-100">
@@ -42,7 +42,7 @@
             <h4 class=" text-primary fw-bold ms-4 mt-3">注册</h4>
         </div>
 
-        <form action="RegisterServlet" method="get">
+        <form action="RegisterServlet" method="post">
             <div class="row mb-4 mt-4 ms-4">
                 <label class="fw-bold mb-3">用户名</label>
                 <div class="col-9 ">

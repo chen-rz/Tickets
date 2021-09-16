@@ -6,22 +6,22 @@
 	String freason = request.getParameter("loginfail");
 	if(freason.equals("phoneno_err")){
 %>
-		<script type="text/javascript"> alert('登录失败\n\n手机号错误或用户不存在');window.location.href="login.jsp"; </script>
+		<script type="text/javascript"> alert('登录失败\n\n▲ 手机号错误或用户不存在');window.location.href="login.jsp"; </script>
 <%	}
 	if(freason.equals("password_err")){
 %>
- 		<script type="text/javascript"> alert('登录失败\n\n密码错误');window.location.href="login.jsp"; </script>
+ 		<script type="text/javascript"> alert('登录失败\n\n▲ 密码错误');window.location.href="login.jsp"; </script>
 <%	}
 	if(freason.equals("isofficial_err")){
 %>
- 		<script type="text/javascript"> alert('登录失败\n\n用户身份类型错误');window.location.href="login.jsp"; </script>
+ 		<script type="text/javascript"> alert('登录失败\n\n▲ 用户身份类型错误');window.location.href="login.jsp"; </script>
 <%	}
 }%>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>欢迎光临景区订票系统</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 </head>
@@ -29,9 +29,6 @@
 <body class="bg-light text-dark">
     
     <div class="row">
-        <!-- <div class="col-lg-8 col-md-6 col-0 min-vh-100 bg-primary">
-                picture
-        </div> -->
 
         <div id="carouselExampleCaptions" class="carousel slide carousel-fade col-lg-8 col-md-6 col-0 min-vh-100 bg-" data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -77,7 +74,7 @@
             <div class="mb-2"></div>
             <div class="p-4 m-5">
                 <h4 class="mt-5 mb-5 text-dark fs-2 fw-normal">欢迎光临 <span class="fw-bold">景区订票系统</span></h4>
-                <form action="LoginServlet" method="get">
+                <form action="LoginServlet" method="post">
                     <div class="row mb-4">
                         <label class="fw-bold mb-3">手机号</label>
                         <div class="col-sm-12 ">

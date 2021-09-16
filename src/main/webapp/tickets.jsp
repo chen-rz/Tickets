@@ -28,7 +28,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>订单记录</title>
+    <title>订单记录（共 <%=rsvset.size() %> 条）</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 </head>
@@ -73,7 +73,7 @@
     </nav>
 
     <div class="container-lg min-vh-100 mb-0">
-        <p class="fs-6 fw-bold text-primary ms-0 mb-3 pt-3">订单记录</p>
+        <p class="fs-6 fw-bold text-primary ms-0 mb-3 pt-3">订单记录（共 <%=rsvset.size() %> 条）</p>
         
         <%for(int i=0;i<rsvset.size();i++){ %>
         <div class="shadow row mt-3 ms-3 mb-5 me-3" style="border-width: 0.7rem 0 0.7rem 0; border-color: #ffc107;border-style: solid; background-color:white; ">
@@ -116,7 +116,7 @@
     <footer class="bg-primary bg-opacity-10 mt-0">
         <div class="container-lg mt-0 text-center">
             <h3 class="mt-0">广告位招租</h3>
-            <p class="mt-5 mb-5"> 大哉一诚天下动/如鼎三足兮/曰知曰仁曰勇/千圣会归兮/集成于孔/下开万代旁万方兮/一趋兮同/踵海西上兮/江东/巍峨北极兮/金城之中/天开教泽兮/吾道无穷/吾愿无穷兮/如日方暾</p>
+            <p class="mt-5 mb-5">欢迎报考南京师范大学附属中学<br>地址：南京市鼓楼区察哈尔路37号</p>
         </div>
     </footer>
     

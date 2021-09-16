@@ -124,6 +124,11 @@
                 <button class="col btn btn-primary btn-lg fw-bold" 
                 	onclick="window.location.href='reserve.jsp'">预约订票</button>
             </div>
+			<%}else{ %>
+            <div class="mb-4 mt-4 text-left">
+                <button class="col btn btn-primary btn-lg fw-bold" 
+                	onclick="window.location.href='login.jsp'">去登录</button>
+            </div>
 			<%} %>
         </div>
     </section>

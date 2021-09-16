@@ -67,6 +67,9 @@ public class ReserveServlet extends HttpServlet {
 	}
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		Park pk = new Park();
 		if(request.getSession().getAttribute("park_selected")!=null){
@@ -159,9 +162,6 @@ public class ReserveServlet extends HttpServlet {
 		}
 		
 		response.sendRedirect("tickets.jsp");
-	}
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 	}
 	public void init() throws ServletException {
 		
