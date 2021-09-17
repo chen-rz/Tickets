@@ -1,10 +1,13 @@
 package service;
 
 import entity.User;
+
+import java.io.IOException;
+
 import dao.LogRegDAO;
 
 public class LogRegService {
-	public String login(User u) {
+	public String login(User u) throws IOException {
 		System.out.print("Login service requested: ");
 		u.printInfo();
 		
@@ -16,13 +19,13 @@ public class LogRegService {
 		return "suc";
 	}
 	
-	public User getUser(User u) {
+	public User getUser(User u) throws IOException {
 		LogRegDAO dao = new LogRegDAO();
 		User rslt = dao.loginDAO(u);
 		return rslt;
 	}
 	
-	public boolean register(User u) {
+	public boolean register(User u) throws IOException {
 		System.out.print("Register service requested: ");
 		u.printInfo();
 		
