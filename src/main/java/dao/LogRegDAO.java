@@ -22,14 +22,21 @@ public class LogRegDAO {
 		InputStream in = Resources.getResourceAsStream(resource);
 		
 		SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(in);
-		
 		SqlSession sqlSession = sessionFactory.openSession();
 		
-		User rslt = sqlSession.selectOne("scd.loginDAO", totest);
+		User rslt = null;
 		
-		sqlSession.close();
+		try {
+			rslt = sqlSession.selectOne("scd.loginDAO", totest);
+			sqlSession.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		
-		System.out.print("Login DAO: "); rslt.printInfo();
+		if(rslt!=null) {
+			rslt.setPhoneno(totest.getPhoneno());
+			System.out.print("Login DAO: "); rslt.printInfo();
+		}
 		return rslt;
 		
 //		try{Class.forName(JDBC_DRIVER);}
@@ -71,7 +78,6 @@ public class LogRegDAO {
 		InputStream in = Resources.getResourceAsStream(resource);
 		
 		SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(in);
-		
 		SqlSession sqlSession = sessionFactory.openSession();
 		
 		boolean rslt=false;
@@ -79,14 +85,14 @@ public class LogRegDAO {
 		try {
 			sqlSession.insert("scd.registerDAO", u);
 			sqlSession.commit();
-		}catch(Exception e) {
 			sqlSession.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+			
 			System.out.println("Register DAO: "+rslt);
 			return rslt;
 		}
-		
-		sqlSession.close();
-		
+
 		rslt=true;
 		System.out.println("Register DAO: "+rslt);
 		return rslt;
