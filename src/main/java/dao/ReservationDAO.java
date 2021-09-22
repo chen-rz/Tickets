@@ -75,7 +75,7 @@ public class ReservationDAO {
 		try{
 			Connection conn=DriverManager.getConnection(DB_URL,USER,PASS);
 			Statement statement=conn.createStatement();
-			String sql="SELECT * FROM reservations WHERE user_phoneno='"+usrphoneno+"' ORDER BY reserve_id ASC;";
+			String sql="SELECT * FROM reservations WHERE user_phoneno='"+usrphoneno+"' ORDER BY reserve_id DESC;";
 			ResultSet rs=statement.executeQuery(sql);
 			while(rs.next()){
 				Reservation tmp=new Reservation();

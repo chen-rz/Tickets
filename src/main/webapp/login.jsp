@@ -17,6 +17,21 @@
  		<script type="text/javascript"> alert('登录失败\n\n▲ 用户身份类型错误');window.location.href="login.jsp"; </script>
 <%	}
 }%>
+
+<script type="text/javascript">
+  var ua = navigator.userAgent;
+  var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+  isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+  isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+  isMobile = isIphone || isAndroid;
+
+  var display = document.getElementById("carouselExampleCaptions");
+  if(isMobile)
+  {
+    display.setAttribute("class", "carousel slide carousel-fade col-lg-8 col-md-6 col-0 bg-tramsparent d-none");
+  }
+</script>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -113,9 +128,11 @@
                     <div class="mt-3 text-center login-form-item text-muted">
                         或者...<a href="welcome.jsp" style="text-decoration: none;">先去逛逛？</a>
                     </div>
+                    <div class="mt-3 text-center login-form-item text-small text-muted">
+                		Copyright &copy; 严宇昂 AND 陈润泽
+                	</div>
                 </form>
 
-                <div class="position-absolute bottom-0 start-50 translate-middle text-center mt-5 mb-5 text-small text-muted">Copyright &copy; 严宇昂 AND 陈润泽</div>
             </div>
 
         </div>

@@ -36,8 +36,8 @@
     <title>用户注册 - 景区订票系统</title>
 </head>
 
-<body class="position-relative bg-light min-vh-100">
-    <div class="shadow position-absolute top-50 start-50 translate-middle card col-10 col-sm-8 col-md-7 col-lg-6 col-xl-5">
+<body class="bg-light min-vh-100 position-relative">
+    <div class="shadow position-absolute top-0 start-50 translate-middle-x card col-10 col-sm-8 col-md-7 col-lg-6 col-xl-5">
         <div class="card-header bg-white">
             <h4 class=" text-primary fw-bold ms-4 mt-3">注册</h4>
         </div>

@@ -104,8 +104,8 @@
                 </p>
             </div>
 
-            <div class="col-lg-3 text-center pt-4" >
-                <img src="https://api.pwmqr.com/qrcode/create/?url=<%=rsvset.get(i).getId_cipher() %>" style="width: 13em; height: 13em;">     
+            <div class="col-lg-3 text-center pt-5 mt-2" >
+                <img src="https://api.pwmqr.com/qrcode/create/?url=<%=rsvset.get(i).getId_cipher() %>" style="width: 15em; height: 15em;">     
             </div>
             
         </div>
@@ -113,10 +113,16 @@
         
     </div>
 
-    <footer class="bg-primary bg-opacity-10 mt-0">
-        <div class="container-lg mt-0 text-center">
-            <h3 class="mt-0">广告位招租</h3>
-            <p class="mt-5 mb-5">欢迎报考南京师范大学附属中学<br>地址：南京市鼓楼区察哈尔路37号</p>
+	<footer class="bg-primary bg-opacity-10 p-5 mt-5">
+        <div class="container-lg text-center">
+            <h3 class="mt-2 ">* 谢谢支持 *</h3>
+            <p class="mt-3 pt-3 text-secondary">
+                由于支付功能需要企业资质，暂时无法完善支付模块哦，不过聪明的小伙伴肯定想到了，我们的微信是14762998710和13337806752，掏出手机支持我们一下吧~
+            </p>
+
+            <p class="mt-3 pt-5 text-muted">
+              Copyright &copy; 严宇昂AND陈润泽
+            </p>
         </div>
     </footer>
     

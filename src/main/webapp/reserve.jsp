@@ -23,6 +23,26 @@
 <%		}
 	}
  %>
+ 
+<script type="text/javascript">
+	function cfmRsv(){
+		var r = confirm('确认提交此订单并支付？');
+		if(r == false){
+			alert('◆  订单已取消');
+			return false;
+		}
+	}
+</script>
+
+<script type="text/javascript">
+	var submitCheck = false;
+	function antiDuplicateSubmission(){
+		if(submitCheck == true){return false;}
+		submitCheck = true;
+		return true;
+	}
+</script>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -116,9 +136,9 @@
                             <div class="col-lg-4">
                                 <label class="form-label fw-bold">预约日期</label>
                                 <select class="form-select" aria-label="Default select example" name="schedule_date">
-                                    <option value="0" selected>今天</option>
-                                    <option value="1">明天</option>
-                                    <option value="2">后天</option>
+                                    <option value="0" selected>今天（剩余 <%= pk.getMax_num()-pk.getVisitor_0() %> 人次）</option>
+                                    <option value="1">明天（剩余 <%= pk.getMax_num()-pk.getVisitor_1() %> 人次）</option>
+                                    <option value="2">后天（剩余 <%= pk.getMax_num()-pk.getVisitor_2() %> 人次）</option>
                                 </select>
                             </div>
                         </div>
@@ -204,7 +224,7 @@
                         </div>
 
                         <div class="mb-2 mt-4 text-end">
-                            <button type="submit" class="col btn btn-primary btn-lg fw-bold">预订</button>
+                            <button onclick="return cfmRsv();" type="submit" class="col btn btn-primary btn-lg fw-bold">预订</button>
                         </div>
                     </div>
                 </div>
@@ -213,11 +233,15 @@
         </div>
     </section>
 
-    <footer class="bg-primary bg-opacity-10 mt-5 ">
-        <div class="container-lg mt-5 text-center">
-            <h3 class="mt-5">广告位招租</h3>
-            <p class="mt-5 mb-5">
-               创新名城，美丽古都，世界文化遗产明孝陵欢迎您！
+    <footer class="bg-primary bg-opacity-10 p-5 mt-5">
+        <div class="container-lg text-center">
+            <h3 class="mt-2 ">* 谢谢支持 *</h3>
+            <p class="mt-3 pt-3 text-secondary">
+                由于支付功能需要企业资质，暂时无法完善支付模块哦，不过聪明的小伙伴肯定想到了，我们的微信是14762998710和13337806752，掏出手机支持我们一下吧~
+            </p>
+
+            <p class="mt-3 pt-5 text-muted">
+              Copyright &copy; 严宇昂AND陈润泽
             </p>
         </div>
     </footer>
@@ -408,15 +432,6 @@
             }
             
         }   
-    </script>
-    
-    <script type="text/javascript">
-    	var submitCheck = false;
-    	function antiDuplicateSubmission(){
-    		if(submitCheck == true){return false;}
-    		submitCheck = true;
-    		return true;
-    	}
     </script>
     
 </html>
