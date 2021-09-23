@@ -18,20 +18,6 @@
 <%	}
 }%>
 
-<script type="text/javascript">
-  var ua = navigator.userAgent;
-  var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
-  isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
-  isAndroid = ua.match(/(Android)\s+([\d.]+)/),
-  isMobile = isIphone || isAndroid;
-
-  var display = document.getElementById("carouselExampleCaptions");
-  if(isMobile)
-  {
-    display.setAttribute("class", "carousel slide carousel-fade col-lg-8 col-md-6 col-0 bg-tramsparent d-none");
-  }
-</script>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -139,4 +125,20 @@
     </div>
     
 </body>
+
+<!-- 移动端页面显示适配 -->
+<script type="text/javascript">
+  var ua = navigator.userAgent;
+  var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+  isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+  isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+  isMobile = isIphone || isAndroid;
+
+  var display = document.getElementById("carouselExampleCaptions");
+  if(isMobile)
+  {
+    display.setAttribute("class", "carousel slide carousel-fade col-lg-8 col-md-6 col-0 bg-tramsparent d-none");
+  }
+</script>
+
 </html>

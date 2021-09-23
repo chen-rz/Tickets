@@ -52,7 +52,10 @@ public class LoginServlet extends HttpServlet {
 			
 			if(loginRs.equals("suc")) {
 				request.getSession().setAttribute("user_info", svc.getUser(u));
-				response.sendRedirect("welcome.jsp");
+				if(u.isOfficial()) 
+					response.sendRedirect("admin.jsp");
+				else
+					response.sendRedirect("welcome.jsp");
 			}
 			else {
 				response.sendRedirect("login.jsp?loginfail="+loginRs);

@@ -2,7 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="scd">
 
-    <select id="loginDAO" parameterType="entity.User" resultType="entity.User" >
+	<resultMap id="loginMap" type="entity.User">
+	    <id property="phoneno" column="phone_no"/>
+		<result property="user_name" column="user_name"/>
+		<result property="phoneno" column="phone_no"/>
+		<result property="password" column="password"/>
+		<result property="isOfficial" column="is_official"/>
+	</resultMap>
+	
+    <select id="loginDAO" parameterType="entity.User" resultMap="loginMap" >
     	SELECT * FROM register WHERE phone_no= #{phoneno} ;
     </select>
 
