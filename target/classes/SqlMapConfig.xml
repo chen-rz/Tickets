@@ -8,7 +8,7 @@
             <dataSource type="POOLED">
                 <property name="driver" value="org.postgresql.Driver" />
                 <property name="url"
-                    value="jdbc:postgresql://123.60.82.11:26000/software_course_design?ApplicationName=app1" />
+                    value="jdbc:postgresql://rzchen.tk:5432/software_course_design" />
                 <property name="username" value="chenrz" />
                 <property name="password" value="jsnj130601*" />
             </dataSource>

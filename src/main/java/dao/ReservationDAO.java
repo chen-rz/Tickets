@@ -11,7 +11,7 @@ import entity.Reservation;
 
 public class ReservationDAO {
 	static final String JDBC_DRIVER="org.postgresql.Driver";
-	static final String DB_URL="jdbc:postgresql://123.60.82.11:26000/software_course_design?ApplicationName=app1";
+	static final String DB_URL="jdbc:postgresql://127.0.0.1:5432/software_course_design";
 	static final String USER="chenrz";
 	static final String PASS="jsnj130601*";
 	

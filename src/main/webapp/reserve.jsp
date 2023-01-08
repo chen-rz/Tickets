@@ -237,11 +237,11 @@
         <div class="container-lg text-center">
             <h3 class="mt-2 ">* 谢谢支持 *</h3>
             <p class="mt-3 pt-3 text-secondary">
-                由于支付功能需要企业资质，暂时无法完善支付模块哦，不过聪明的小伙伴肯定想到了，我们的微信是14762998710和13337806752，掏出手机支持我们一下吧~
+				由于支付功能需要企业资质，暂时无法完善支付模块
             </p>
 
             <p class="mt-3 pt-5 text-muted">
-              Copyright &copy; 严宇昂AND陈润泽
+              Copyright &copy; 严宇昂 AND 陈润泽
             </p>
         </div>
     </footer>
